@@ -1,0 +1,102 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #165c9d, #1e729b);
+    text-align: center;
+    color: #333;
+}
+
+/* Header Section */
+header {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 30px 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+}
+
+/*Headings*/
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #163b90;
+    margin-bottom: 15px;
+}
+
+/*Section Styling*/
+section {
+    background-color: rgb(166, 202, 234);
+    margin: 30px auto;
+    padding: 25px;
+    width: 85%;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+/*Hover effect for sections*/
+section:hover {
+    transform: scale(1.02);
+}
+
+/*List Styling*/
+ul {
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul li {
+    background: #eef5ff;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    list-style: none;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*Footer*/
+footer {
+    background: #222;
+    color: white;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*Responsive Design*/
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        width: 90%;
+        padding: 20px;
+    }
+
+    ul {
+        max-width: 100%;
+    }
+}
