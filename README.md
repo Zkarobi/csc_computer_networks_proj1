@@ -1,6 +1,4 @@
-# csc_computer_networks
- 
-# Computer Networking Project
+ # Computer Networking Project 1
 
 ## Overview
 This project demonstrates setting up a website using GitHub Pages while applying networking concepts such as DNS, IP addressing, and secure communication protocols.
