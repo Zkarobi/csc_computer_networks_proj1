@@ -18,5 +18,5 @@ This project demonstrates setting up a website using GitHub Pages while applying
 ## Website and Repository Links
 - **Live Website:** [GitHub Pages Link](https://bhaskartej.github.io/csc_computer_networks_proj1/)
 - **GitHub Repository:** [Project Repository](https://github.com/Zkarobi/csc_computer_networks_proj1)
-- [View Full Report](Computer Networking Project Report.pdf) 
+- [View Full Report](Computer_Networking_Project_Report.pdf) 
   
