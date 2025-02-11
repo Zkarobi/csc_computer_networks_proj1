@@ -8,8 +8,17 @@
 </head>
 <body>
 
+    <!-- navigation bar -->
+    <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#steps">Steps</a>
+        <a href="#networking">Networking</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#team">Team Members</a>
+    </nav>
+
     <header>
-        <h1>Computer Networking Project</h1>
+        <h1 id="typewriter"></h1>
         <p>Hosting a Website with GitHub Pages & Understanding Networking Concepts</p>
     </header>
 
@@ -34,35 +43,102 @@
         <h2>Networking Concepts Applied</h2>
         <ul>
             <li><strong>DNS (Domain Name System):</strong> 
-                GitHub Pages assigns a subdomain (e.g., <code>username.github.io/repository-name</code>). When a user enters the domain, the DNS translates it into an IP address associated with GitHub's hosting servers. The DNS records are managed by GitHub.
+                GitHub Pages assigns a subdomain (e.g., <code>username.github.io/repository-name</code>). When a user enters the domain, the DNS translates it into an IP address associated with GitHub's hosting servers.
             </li>
             <li><strong>IP Addressing:</strong> 
-                GitHub Pages serves the website from a set of IP addresses. We verified this by using the <code>ping</code> command (e.g., <code>ping username.github.io</code>), which returns the public IP address of GitHub’s CDN.
+                GitHub Pages serves the website from a set of IP addresses. We verified this by using the <code>ping</code> command.
             </li>
             <li><strong>HTTP/HTTPS:</strong> 
-                GitHub Pages enforces HTTPS by default, ensuring secure communication using TLS encryption. This protects against man-in-the-middle attacks and ensures data integrity.
+                GitHub Pages enforces HTTPS by default, ensuring secure communication using TLS encryption.
             </li>
             <li><strong>Ping & Traceroute:</strong> 
-                - <strong>Ping:</strong> Running <code>ping username.github.io</code> verifies that the site is reachable and displays response times. <br>
-                - <strong>Traceroute:</strong> Running <code>traceroute username.github.io</code> (Linux/macOS) or <code>tracert username.github.io</code> (Windows) shows the hops taken to reach GitHub’s servers, demonstrating how data travels across networks.
+                <ul>
+                    <li><strong>Ping:</strong> Running <code>ping username.github.io</code> verifies the site's reachability.</li>
+                    <li><strong>Traceroute:</strong> Running <code>traceroute username.github.io</code> shows the hops taken to reach GitHub’s servers.</li>
+                </ul>
             </li>
         </ul>
+        
+        <!-- display user's ip -->
+        <p><strong>Your IP Address:</strong> <span id="user-ip">Loading...</span></p>
     </section>
-    
+
     <section id="challenges">
         <h2>Challenges & Solutions</h2>
-        
-        <p><strong>Challenge:</strong> Setting up GitHub Pages and ensuring the website was accessible globally.</p>
-        <p><strong>Solution:</strong> We enabled GitHub Pages in the repository settings and selected the correct branch for deployment. It took some time for the DNS records to propagate before the site became accessible.</p>
-    
-        <p><strong>Challenge:</strong> Understanding how GitHub assigns IP addresses and how DNS resolution works.</p>
-        <p><strong>Solution:</strong> We used <code>ping</code> and <code>traceroute</code> commands to analyze the network path and verify the assigned IP address.</p>
-    
+
+        <button class="toggle-btn">➕ Challenge: GitHub Pages Accessibility</button>
+        <div class="toggle-content">
+            <p><strong>Solution:</strong> Enabled GitHub Pages in the repository settings and waited for DNS propagation.</p>
+        </div>
+
+        <button class="toggle-btn">➕ Challenge: Understanding DNS & IP Addresses</button>
+        <div class="toggle-content">
+            <p><strong>Solution:</strong> Used <code>ping</code> and <code>traceroute</code> commands to analyze the network path.</p>
+        </div>
     </section>
-    
+
+    <!-- team members -->
+    <section id="team">
+        <h2>Team Members</h2>
+        <ul class="team-list">
+            <li>Zeba Karobi</li>
+            <li>Sebastian Geer</li>
+            <li>Rian Merritt</li>
+            <li>BhaskarTeja Pidugu</li>
+        </ul>
+    </section>
+
     <footer>
-        <p>Created by Zeba Karobi, Sebastian Geer, Rian Merritt, BhaskarTeja Pidugu | Hosted on <a href="https://github.com/Zkarobi/csc_computer_networks_proj1" target="_blank">GitHub Pages</a></p>
+        <p>Created by <strong>Team CSC Networking</strong></p>
+        <p>🔗 <a href="https://github.com/Zkarobi/csc_computer_networks_proj1" target="_blank">GitHub Repository</a></p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // display user's ip
+        fetch("https://api.ipify.org?format=json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("user-ip").innerText = data.ip;
+            })
+            .catch(error => console.error("Error fetching IP:", error));
+
+        // challenges section is expandable
+        document.querySelectorAll(".toggle-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                const content = button.nextElementSibling;
+                content.style.display = content.style.display === "none" ? "block" : "none";
+            });
+        });
+
+        // typewriter effect (fixed spacing issue)
+        const text = "Computer Networking Project";
+        let index = 0;
+
+        function typeWriterEffect() {
+            if (index < text.length) {
+                document.getElementById("typewriter").innerHTML += text[index];
+                index++;
+                setTimeout(typeWriterEffect, 100);
+            }
+        }
+        typeWriterEffect();
+
+        // fade-in sections on scroll
+        function revealSections() {
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => {
+                const sectionPosition = section.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+
+                if (sectionPosition < screenHeight - 100) {
+                    section.classList.add("visible");
+                }
+            });
+        }
+        window.addEventListener("scroll", revealSections);
+        revealSections();
+    </script>
 
 </body>
 </html>

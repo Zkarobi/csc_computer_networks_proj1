@@ -8,6 +8,34 @@ body {
     color: #333;
 }
 
+/* Navigation Bar */
+nav {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    margin: 0 10px;
+    transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+    color: #ffcc00;
+}
+
 /* Header Section */
 header {
     background: rgba(255, 255, 255, 0.2);
@@ -19,7 +47,7 @@ header {
     backdrop-filter: blur(5px);
 }
 
-/*Headings*/
+/* Headings */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -31,7 +59,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-/*Section Styling*/
+/* Sections */
 section {
     background-color: rgb(166, 202, 234);
     margin: 30px auto;
@@ -43,12 +71,24 @@ section {
     transition: transform 0.2s ease-in-out;
 }
 
-/*Hover effect for sections*/
+/* Hover effect for sections */
 section:hover {
     transform: scale(1.02);
 }
 
-/*List Styling*/
+/* Sections fade-in on scroll */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Lists */
 ul {
     text-align: left;
     max-width: 700px;
@@ -66,7 +106,75 @@ ul li {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/*Footer*/
+/* Team Members Section */
+#team {
+    background-color: rgb(180, 215, 240);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.team-list {
+    list-style: none;
+    padding: 0;
+}
+
+.team-list li {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #eef5ff;
+    padding: 12px;
+    margin: 8px auto;
+    border-radius: 8px;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: floatEffect 3s infinite ease-in-out;
+}
+
+/* Floating team members animation */
+@keyframes floatEffect {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Expandable Challenge Sections */
+.toggle-btn {
+    background: #165c9d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.toggle-btn:hover {
+    background: #1e729b;
+}
+
+.toggle-content {
+    display: none;
+    padding: 10px;
+    background: #eef5ff;
+    border-radius: 8px;
+}
+
+/* Button hover effect */
+button {
+    transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
 footer {
     background: #222;
     color: white;
@@ -81,7 +189,11 @@ footer a {
     font-weight: bold;
 }
 
-/*Responsive Design*/
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -98,5 +210,16 @@ footer a {
 
     ul {
         max-width: 100%;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 10px;
+        margin: 5px 0;
     }
 }
